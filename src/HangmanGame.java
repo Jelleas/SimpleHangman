@@ -7,20 +7,20 @@ public class HangmanGame {
     public void play() {
         String word = randomWord();
         HashSet<Character> guessedLetters = new HashSet<>();
-        int lifes = 8;
+        int lives = 8;
 
-        while (lifes > 0 && !isWordGuessed(word, guessedLetters)) {
+        while (lives > 0 && !isWordGuessed(word, guessedLetters)) {
             char letter = requestLetter();
             guessedLetters.add(letter);
 
             if (!lettersIn(word).contains(letter)) {
-                lifes--;
+                lives--;
             }
 
-            show(word, guessedLetters, lifes);
+            show(word, guessedLetters, lives);
         }
 
-        if (lifes == 0) {
+        if (lives == 0) {
             System.out.println("You lost!");
         } else {
             System.out.println("You won!");
